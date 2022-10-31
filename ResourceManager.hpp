@@ -13,7 +13,7 @@ public:
     ResourceManager() { resource = new Resource; }
 
      // DESTRUKTOR
-    ~ResourceManager() { delete resource }
+    ~ResourceManager() { delete resource; }
 
     // KONSTRUKTOR KOPIUJ¥CY
     ResourceManager(const ResourceManager& CRM) { resource = new Resource{*CRM.resource}; }
@@ -22,7 +22,7 @@ public:
     ResourceManager(ResourceManager&& MoveRM) 
     { 
         resource = MoveRM.resource;
-        MoveRM.resource = nullptr
+        MoveRM.resource = nullptr;
     }
      
     // KONSTRUKTOR PRZYPISANIA
@@ -40,5 +40,5 @@ public:
 
 
 private:
-    Resource* res = nullptr;
+    Resource* resource = nullptr;
 };
