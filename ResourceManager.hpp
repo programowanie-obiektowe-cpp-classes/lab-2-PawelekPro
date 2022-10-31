@@ -34,6 +34,17 @@ public:
         }
         return *this;
     }
+    // OPERATOR PRZYPISANIA
+    ResourceManager& operator=(ResourceManager&& MoveRM) 
+    { 
+        if (this != &MoveRM) {
+            delete resource;
+            resource = MoveRM.resource;
+            MoveRM.resource = nullptr;
+        }
+        return *this;
+    }
+
 
     // FUNKCJA DOUBLE GET
     double get() { return resource->get(); }
